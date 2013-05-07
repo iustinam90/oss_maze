@@ -14,6 +14,7 @@
 #include <errno.h>
 extern int errno; 
 
+#include "utils.h"
 
 #define STS_OK '0'
 #define STS_FAIL '1'
@@ -28,13 +29,9 @@ extern int errno;
 #define PERMS 0700
 #define MAZE_DEPTH 8
 #define MAX_ARG_LEN 13
-#define BIT_PATH_LEN (8+8+1)
-#define NUM_PATHS 7
-#define FIXED_MSG_LEN 20
-#define MIN_CHAR 33
-#define MAX_CHAR 126
 
-int debug=1;
+
+int debug=0;
 
 char entities[3][6]={"sh","mazer",""};
 int entity=2;
@@ -985,6 +982,7 @@ int main(int argc, char** argv)
 	}
 	return 0;
 }				
+
 
 
 

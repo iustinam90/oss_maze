@@ -10,13 +10,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <time.h>
-
-#define BIT_PATH_LEN 8+8+1
-#define ERR_FILE "/root/mazeerrs"
-#define FIXED_MSG_LEN 20
-#define MIN_CHAR 33
-#define MAX_CHAR 126
-
+#include "utils.h"
 
 char my_path[BIT_PATH_LEN];
 char my_rand_char[9];
@@ -25,22 +19,6 @@ char my_position[3];
 char srv_port[7];
 int i,j,k;
 char msg[1024];
-
-
-//get current timestamp
-void write_to_file(char* fname,char* mode,char msg[]){
-    FILE *fp;
-    if((fp=fopen(fname,mode))==NULL){
-        //write in current dir
-        printf("err");
-    }
-    //append in mazeerrs
-    if(fwrite(msg,1,strlen(msg),fp)!=strlen(msg)){
-        //write in current dir
-        printf("err1");
-    }
-    fclose(fp);
-}
 
 
 void log_error(char msg[]){
@@ -174,4 +152,5 @@ int main(int argc,char* argv[]){
 
     return 0;
 }
+
 
